@@ -25,13 +25,6 @@ body.dark-theme {
     margin: auto;
 }
 
-aside {
-    width: 250px;
-    background-color: #fff;
-    border-right: 1px solid #ddd;
-    padding: 2em 1em;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
 
 .profile {
     text-align: center;
@@ -188,12 +181,7 @@ tr:hover {
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-    aside {
-        width: 100%;
-        border-right: none;
-        border-bottom: 1px solid #ddd;
-    }
-
+    
     main {
         padding: 1em;
     }
