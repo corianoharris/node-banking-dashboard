@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "tsc && cp src/index.html public/ && cp -r src/styles.css public/",
+    "build": "tsc && cp src/index.html public/ && cp src/styles.css public/",
     "start": "ts-node src/server.ts",
     "dev": " ",
     "test": "echo \"Error: no test specified\" && exit 1",
