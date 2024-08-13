@@ -19,7 +19,7 @@ app.get('/', (req: Request, res: Response) => {
 });
 
 // Get all cards
-app.get('/api/cards', async (req: Request, res: Response) => {
+app.get('/api/bank-user-info/cards', async (req: Request, res: Response) => {
     try {
         const cards = await Card.find();
         res.json(cards);
@@ -30,7 +30,7 @@ app.get('/api/cards', async (req: Request, res: Response) => {
 });
 
 // Get all transactions
-app.get('/api/transactions', async (req: Request, res: Response) => {
+app.get('/api/bank-user-info/transactions', async (req: Request, res: Response) => {
     try {
         const transactions = await Transaction.find().sort({ date: -1 });
         res.json(transactions);
