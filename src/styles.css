@@ -14,77 +14,54 @@ body.light-theme {
 }
 
 body.dark-theme {
-    background-color: #2b2b2b;
-    color: #f0f0f5;
+    background-color: #151007;
+    color: #dba84c;
 }
 
 .container {
-    display: flex;
+    display: grid;
+    grid-template-areas:
+        "header header"
+        "main main"
+        "footer footer";
+    grid-template-rows: auto 1fr auto;
+    grid-template-columns: 1fr;
     width: 100%;
-    max-width: 1200px;
+    max-width: 1000px;
     margin: auto;
-}
-
-aside {
-    width: 250px;
-    background-color: #fff;
-    border-right: 1px solid #ddd;
-    padding: 2em 1em;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.profile {
-    text-align: center;
-}
-
-.profile-img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    object-fit: cover;
-    margin-bottom: 1em;
-}
-
-nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
-
-nav ul li {
-    margin: 1em 0;
-}
-
-nav ul li a {
-    text-decoration: none;
-    color: #333;
-    font-size: 1.1em;
-}
-
-nav ul li a:hover {
-    color: #007bff;
-}
-
-main {
-    flex: 1;
-    padding: 1.5em;
+    gap: 1em;
 }
 
 header {
+    grid-area: header;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1.5em 0;
-    border-bottom: 1px solid #e0e0e0;
 }
 
+main {
+    grid-area: main;
+    padding: 1.5em;
+    max-width: 1000px;
+    margin: 20px auto;
+}
+
+footer {
+    grid-area: footer;
+    padding: 1em;
+}
+
+/* Header styles */
 header h1 {
     margin: 0;
-    font-size: 1.5em;
+    font-size: 2.5em;
+    color: #ffa500;
 }
 
+/* Button styles */
 button {
-    background-color: #007bff;
+    background-color: #cc8400;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -95,9 +72,11 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #e0c799;
+    color: #333;
 }
 
+/* Cards */
 #cards {
     display: flex;
     gap: 1em;
@@ -108,7 +87,7 @@ button:hover {
 .card {
     flex: 1;
     min-width: 250px;
-    background: #fff;
+    background: inherit;
     border: 1px solid #ddd;
     padding: 1.5em;
     border-radius: 8px;
@@ -131,14 +110,16 @@ button:hover {
     margin: 0.5em 0;
 }
 
+/* Transactions */
 #transactions {
-    background: #fff;
+    background: inherit;
     border: 1px solid #ddd;
     padding: 1.5em;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
+/* Filters */
 #filters {
     display: flex;
     gap: 1em;
@@ -159,11 +140,17 @@ select {
     border: 1px solid #ddd;
     border-radius: 4px;
     font-size: 1em;
+    box-sizing: border-box;
 }
 
+/* Table Styles */
 table {
     width: 100%;
     border-collapse: collapse;
+}
+
+thead {
+    border-radius: 4px;
 }
 
 th,
@@ -174,8 +161,8 @@ td {
 }
 
 th {
-    background-color: #007bff;
-    color: #fff;
+    background-color: #ffa500;
+    color: #191000;
 }
 
 tr:nth-child(even) {
@@ -188,14 +175,11 @@ tr:hover {
 
 /* Responsive Styles */
 @media (max-width: 768px) {
-    aside {
-        width: 100%;
-        border-right: none;
-        border-bottom: 1px solid #ddd;
-    }
-
-    main {
-        padding: 1em;
+    .container {
+        grid-template-areas:
+            "header"
+            "main"
+            "footer";
     }
 
     #cards {
@@ -217,10 +201,7 @@ tr:hover {
 }
 
 @media (max-width: 480px) {
-    header h1 {
-        font-size: 1.2em;
-    }
-
+ 
     button {
         font-size: 0.9em;
     }

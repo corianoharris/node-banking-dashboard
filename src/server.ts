@@ -10,7 +10,7 @@ dotenv.config();
 const app = express();
 const port = process.env.PORT || 3000;
 
-// Serve static files from the 'public' directory
+// Serve static files from the 'src/public' directory
 app.use(express.static(path.join(__dirname, 'public')));
 
 // Root route

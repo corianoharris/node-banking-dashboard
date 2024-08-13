@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // Function to display card data
-    function displayCardData(cards: any[]) {
+    function displayCardData(cards: Record<string,string>[]) {
         if (cards.length > 0) {
             const card = cards[0];
             updateCardContent(checkingCard, 'Checking Account', card.checking);

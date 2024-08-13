@@ -2,7 +2,7 @@
     "compilerOptions": {
         "target": "ES6",
         "module": "commonjs",
-        "outDir": "./public",
+        "outDir": "src/public",
         "rootDir": "./src",
         "strict": true,
         "esModuleInterop": true,
