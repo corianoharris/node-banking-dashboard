@@ -34,18 +34,18 @@ const transactionSchema = new mongoose_1.Schema({
         type: String,
         required: true
     },
-    balance: {
+    amount: {
         type: Number,
         required: true
     },
     type: {
         type: String,
-        enum: ['Checking', 'Savings', 'Investments', 'Mortgage'],
+        enum: ['Deposit', 'Withdrawal', 'Payment'],
         required: true
     },
-    paymentType: {
+    account: {
         type: String,
-        enum: ['Deposit', 'Withdrawal', 'Payment'],
+        enum: ['Checking', 'Savings', 'Investments', 'Mortgage'],
         required: true
     },
 });

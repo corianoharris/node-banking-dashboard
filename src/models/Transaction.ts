@@ -5,8 +5,8 @@ interface ITransaction extends Document {
     date: Date;
     description?: string;
     balance: number;
-    type: 'Checking' | 'Savings' | 'Investments' | 'Mortgage';
-    paymentType: 'Deposit' | 'Withdrawal' | 'Payment';
+    type: 'Deposit' | 'Withdrawal' | 'Payment'
+    account: 'Checking' | 'Savings' | 'Investments' | 'Mortgage';
 }
 
 // Define the schema for the Transaction model
@@ -19,18 +19,18 @@ const transactionSchema: Schema = new Schema({
         type: String,
         required: true
     },
-    balance: {
+    amount: {
         type: Number,
         required: true
     },
     type: {
         type: String,
-        enum: ['Checking', 'Savings', 'Investments', 'Mortgage'],
+        enum: ['Deposit' , 'Withdrawal' , 'Payment'], 
         required: true
     },
-    paymentType: {
+    account: {
         type: String,
-        enum: ['Deposit' , 'Withdrawal' , 'Payment'],
+        enum: ['Checking', 'Savings', 'Investments', 'Mortgage'],
         required: true
     },
 });
