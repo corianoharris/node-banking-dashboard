@@ -35,10 +35,3 @@ The Bank Dashboard is a web application designed to provide a user-friendly inte
    - Filter transactions by type using the dropdown menu.
    - Sort transactions by date or balance using the corresponding dropdown menu.
 
-## Installation
-
-To use this dashboard locally:
-
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/your-repository/bank-dashboard.git
