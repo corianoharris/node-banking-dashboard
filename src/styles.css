@@ -15,17 +15,17 @@ body.light-theme {
 
 body.dark-theme {
     background-color: #151007;
-    color: #dba84c;
+    color: #007bff;
 }
 
 .container {
     display: grid;
     grid-template-areas:
-        "header header"
-        "main main"
-        "footer footer";
-    grid-template-rows: auto 1fr auto;
-    grid-template-columns: 1fr;
+        "item1 item2"
+        "item3 item4"
+        "item5 item5";
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr 1fr;
     width: 100%;
     max-width: 1000px;
     margin: auto;
@@ -56,12 +56,12 @@ footer {
 header h1 {
     margin: 0;
     font-size: 2.5em;
-    color: #ffa500;
+    color: #007bff;
 }
 
 /* Button styles */
 button {
-    background-color: #cc8400;
+    background-color: #007bff;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -72,21 +72,21 @@ button {
 }
 
 button:hover {
-    background-color: #e0c799;
-    color: #333;
+    background-color: #007bff;
+    opacity: .8;
 }
 
-/* Cards */
-#cards {
+/* accounts */
+#accounts {
     display: flex;
     gap: 1em;
     flex-wrap: wrap;
     margin-bottom: 1.5em;
 }
 
-.card {
+.account {
     flex: 1;
-    min-width: 250px;
+    width: 500px;
     background: inherit;
     border: 1px solid #ddd;
     padding: 1.5em;
@@ -95,19 +95,36 @@ button:hover {
     transition: box-shadow 0.3s;
 }
 
-.card:hover {
+.account:nth-child(1) { grid-area: item1; }
+.account:nth-child(2) { grid-area: item2; }
+.account:nth-child(3) { grid-area: item3; }
+.account:nth-child(4) { grid-area: item4; }
+.account:nth-child(5) { grid-area: item5; }
+
+.account:hover {
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
-.card h3 {
+.account h3 {
     margin: 0;
     font-size: 1.2em;
-    color: #007bff;
+    color: #000000;
+    background: lightgray;
+    padding: 10px;
+    border-radius: 5px;
 }
 
-.card p {
-    font-size: 1.5em;
+.account p {
+    font-size: 1rem;
     margin: 0.5em 0;
+}
+
+.account span {
+
+    font-size: 1.5rem;
+    color: blue;
+    font-style: italic;
+
 }
 
 /* Transactions */
@@ -161,7 +178,7 @@ td {
 }
 
 th {
-    background-color: #ffa500;
+    background-color: #9fc5e8;
     color: #191000;
 }
 
@@ -182,11 +199,11 @@ tr:hover {
             "footer";
     }
 
-    #cards {
+    #accounts {
         flex-direction: column;
     }
 
-    .card {
+    .account {
         margin-bottom: 1em;
     }
 
@@ -206,7 +223,7 @@ tr:hover {
         font-size: 0.9em;
     }
 
-    .card {
+    .account {
         padding: 1em;
     }
 

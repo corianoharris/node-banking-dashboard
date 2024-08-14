@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Get elements
-    const checkingCard = document.getElementById('checkingCard') as HTMLDivElement;
-    const savingsCard = document.getElementById('savingsCard') as HTMLDivElement;
-    const investmentCard = document.getElementById('investmentCard') as HTMLDivElement;
-    const mortgageCard = document.getElementById('mortgageCard') as HTMLDivElement;
+    const checkingAccount= document.getElementById('checkingAccount') as HTMLDivElement;
+    const savingsAccount = document.getElementById('savingsAccount') as HTMLDivElement;
+    const investmentAccount = document.getElementById('investmentAccount') as HTMLDivElement;
+    const mortgageAccount = document.getElementById('mortgageAccount') as HTMLDivElement;
     const transactionsBody = document.getElementById('transactionsBody') as HTMLTableSectionElement;
     const searchInput = document.getElementById('searchInput') as HTMLInputElement;
     const typeFilter = document.getElementById('typeFilter') as HTMLSelectElement;
@@ -22,42 +22,43 @@ document.addEventListener('DOMContentLoaded', () => {
     // Function to fetch data from the API
     async function fetchData() {
         try {
-            const [cardsResponse, transactionsResponse] = await Promise.all([
-                fetch('/api/cards'),
-                fetch('/api/transactions')
+            const [accountsResponse, transactionsResponse] = await Promise.all([
+                fetch('/accounts'),
+                fetch('/transactions')
             ]);
 
-            const cards = await cardsResponse.json();
+            const accounts = await accountsResponse.json();
+            console.log(accounts);
             transactions = await transactionsResponse.json();
 
-            displayCardData(cards);
+            displayAccountData(accounts);
             updateTransactionsTable(transactions);
         } catch (error) {
             console.error('Error fetching data:', error);
         }
     }
 
-    // Function to display card data
-    function displayCardData(cards: any[]) {
-        if (cards.length > 0) {
-            const card = cards[0];
-            updateCardContent(checkingCard, 'Checking Account', card.checking);
-            updateCardContent(savingsCard, 'Savings Account', card.savings);
-            updateCardContent(investmentCard, '401(k) Investment', card.investments);
-            updateCardContent(mortgageCard, 'Mortgage', card.mortgage);
+    // Function to display account data
+    function displayAccountData(accounts: any[]) {
+        if (accounts.length > 0) {
+            const account = accounts[0];
+            updateAccountContent(checkingAccount, 'Checking Account', account.checking);
+            updateAccountContent(savingsAccount, 'Savings Account', account.savings);
+            updateAccountContent(investmentAccount, '401(k) Investment', account.investments);
+            updateAccountContent(mortgageAccount, 'Mortgage', account.mortgage);
         } else {
-            [checkingCard, savingsCard, investmentCard, mortgageCard].forEach(card => {
-                if (card) card.innerHTML = '<p>No data available.</p>';
+            [checkingAccount, savingsAccount, investmentAccount, mortgageAccount].forEach(account => {
+                if (account) account.innerHTML = '<p>No data available.</p>';
             });
         }
     }
 
-    // Function to update card content
-    function updateCardContent(element: HTMLDivElement | null, title: string, data: any) {
+    // Function to update account content
+    function updateAccountContent(element: HTMLDivElement | null, title: string, data: any) {
         if (element) {
             element.innerHTML = `
                 <h3>${title}</h3>
-                ${Object.entries(data).map(([key, value]) => `<p>${key}: ${value}</p>`).join('')}
+                ${Object.entries(data).map(([key, value]) => `<p>${key}: <span>${value}</span></p>`).join('')}
             `;
         }
     }

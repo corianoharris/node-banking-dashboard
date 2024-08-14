@@ -3,11 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "build": "rm -rf src/public && mkdir src/public/ && cp src/index.html src/public/ && cp src/styles.css src/public/ && tsc src/script.ts --outDir src/public/",
+    "build": "tsc && cp src/index.html src/public/ && cp src/styles.css src/public/ ",
     "start": "ts-node src/server.ts",
     "dev": " ",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "compile": "tsc src/script.ts --outDir public"
+    "compile": "tsc src/script.ts --outDir src/public/"
   },
   "keywords": [],
   "author": "",
